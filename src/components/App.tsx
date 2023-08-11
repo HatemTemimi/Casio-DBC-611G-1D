@@ -8,7 +8,7 @@ function App() {
   useEffect(()=>{
     var today: Date 
     setInterval(()=>{
-      today = new Date()
+      today = new Date("france")
       setTime(today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds())
     }, 1000)
   })
