@@ -52,9 +52,13 @@ function App() {
     }
   }
 
+  useEffect(()=>{
+    init()
+  },[])
+
     useInterval(()=>{
       tick()
-    }, 5, null)
+    }, 1000, null)
     // setInterval(()=> {
     //   tick();
     //   console.log('seconds:', seconds)
