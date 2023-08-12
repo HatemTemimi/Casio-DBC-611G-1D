@@ -33,8 +33,8 @@ export default function Casio() {
                </div>
               <div className='h-full w-full flex-col'>
                 <div className='flex flex-row justify-between'>
-                  <p className='text-yellow-400 font-bold'>CASIO</p>
-                  <p className='text-white font-extrabold'>{"<ILLUMINATOR>"}</p>
+                  <p className='text-yellow-400 font-bold text-2xl'>CASIO</p>
+                  <p className='text-white font-extrabold mt-2'>{"<ILLUMINATOR>"}</p>
                 </div>
                 <div className={(luminous ? 'bg-sky-400':'bg-yellow-400')+" h-4/5 w-full flex justify-center items-center"}>
                   <DigitalScreen></DigitalScreen>

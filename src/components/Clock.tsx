@@ -16,8 +16,6 @@ export default function Clock() {
 
   let [date, setDate] = useState<string>("")
 
-  let [timeZone, setTimeZone] = useState<string>("")
-
   const init = ()=>{
 
     setSeconds(today.getSeconds())
@@ -26,11 +24,8 @@ export default function Clock() {
 
     setHours(today.getHours())
 
-    setDate(today.toDateString())
+    setDate(today.toDateString().slice(3))
 
-    if (today.getTimezoneOffset()===-60){
-      setTimeZone("UTC+1")
-    }
 
   }
 
@@ -73,16 +68,20 @@ export default function Clock() {
   return (
       <div className="flex flex-col justify-center items-center w-full min-h-screen h-full">
         <div className='flex flex-row justify-between w-full px-4 -mt-6'>
-            <h1 className='text-4xl font-bold '>T H U</h1>
-            <div className='text-xs'> 
-                <p>&#9632; &#9633;		Autolight</p>
+            <h1 className='text-4xl font-bold '>{date.substring(0,4)}</h1>
+            <div className='text-xs'>
+                {
+                    (luminous) 
+                    ? <p>&#9632;		Autolight</p>
+                    : <p> &#9633;		Autolight</p>
+                } 
                 <p>&#9632; &#9633;		3 sec</p>
                 <p>&#9632; &#9633;		Mute</p>
             </div>
         </div>
         <div className='flex flex-row space-x-16'>
             <h1 className="text-8xl font-bold tracking-tight text-black sm:text-8xl">
-            {hours}:{minutes}
+                {hours}:{minutes}
             </h1>
             <h1 className="text-8xl font-bold tracking-tight text-black sm:text-8xl">
                 {seconds}
