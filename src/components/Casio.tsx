@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import DigitalScreen from './Digital'
+import { useAppSelector, useAppDispatch } from '../redux/hooks'
+import { switchLight } from 'redux/module'
 
 export default function Casio() {
 
@@ -8,7 +10,10 @@ export default function Casio() {
                            "6","7","8",
                            "9","=","C"]
 
-  let [luminous,setLuminous] = useState(false)
+  //let [luminous,setLuminous] = useState(false)
+
+  const  luminous  = useAppSelector(state=>state.moduleReducer.luminous)
+  const dispatch = useAppDispatch()
 
   let calculator = buttons.map((element)=>{
     return <button key={element}
@@ -18,9 +23,9 @@ export default function Casio() {
     </button>
   })
 
-  let light = ()=>{
-    setLuminous(prev => !prev)
-  }
+  // let light = ()=>{
+  //   setLuminous(prev => !prev)
+  // }
 
   return (
       <div className='bg-white w-2/4 h-3/4 rounded'>
@@ -46,7 +51,7 @@ export default function Casio() {
               </div>
               <div className='text-yellow-400 flex flex-col justify-evenly'> 
                 <button className='rotate-90'>{"►AC"}</button>
-                <button onClick={()=>light()} className='-rotate-90'>{"►Light"}</button>
+                <button onClick={()=>dispatch(switchLight())} className='-rotate-90'>{"►Light"}</button>
                </div>
             </div>
           </div>
