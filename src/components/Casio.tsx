@@ -19,6 +19,7 @@ export default function Casio() {
   })
 
   let light = ()=>{
+    console.log("light is on!")
     setLuminous(prev => !prev)
   }
 
