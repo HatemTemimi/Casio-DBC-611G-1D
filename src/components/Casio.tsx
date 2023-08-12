@@ -1,5 +1,5 @@
-import React from 'react'
-import MainDisplay from './Digital'
+import React, { useState } from 'react'
+import DigitalScreen from './Digital'
 
 export default function Casio() {
 
@@ -7,6 +7,8 @@ export default function Casio() {
                           ,"3","4","5",
                            "6","7","8",
                            "9","=","C"]
+
+  let [luminous,setLuminous] = useState(false)
 
   let calculator = buttons.map((element)=>{
     return <button key={element}
@@ -17,7 +19,7 @@ export default function Casio() {
   })
 
   let light = ()=>{
-      console.log('the light is on!')
+    setLuminous(prev => !prev)
   }
 
   return (
@@ -34,8 +36,8 @@ export default function Casio() {
                   <p className='text-yellow-400 font-bold'>CASIO</p>
                   <p className='text-white font-extrabold'>{"<ILLUMINATOR>"}</p>
                 </div>
-                <div className='bg-yellow-400 h-4/5  w-full flex justify-center items-center'>
-                  <MainDisplay></MainDisplay>
+                <div className={(luminous ? 'bg-sky-400':'bg-yellow-400')+" h-4/5 w-full flex justify-center items-center"}>
+                  <DigitalScreen></DigitalScreen>
                 </div>
                 <div className='text-sky-400 font-bold flex flex-row justify-evenly mt-2'>
                   <p>Multilingual</p>

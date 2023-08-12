@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import useInterval from '../hooks/useInterval'
 
-const MainDisplay = () => {
+const DigitalScreen = () => {
 
   let today: Date = new Date()
 
@@ -15,7 +15,9 @@ const MainDisplay = () => {
 
   let [timeZone, setTimeZone] = useState<string>("")
 
-  let timezones: string[] = ["france", "usa", "china", "japan"]
+
+  let [luminous, setLuminous] = useState<boolean>(false)
+
 
   const init = ()=>{
 
@@ -84,4 +86,4 @@ const MainDisplay = () => {
 
 }
 
-export default MainDisplay;
+export default DigitalScreen;
