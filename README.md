@@ -1,3 +1,3 @@
 # Casio DBC-611G-1D Gold react simulator
-## simulates the Casio DBC-611G-1D implementing casio's Module 3228
+## Web simulator of the Casio DBC-611G-1D digital watch implementing casio's Module 3228
 ## Underconstruction :hammer:
