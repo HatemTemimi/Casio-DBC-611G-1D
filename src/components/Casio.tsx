@@ -10,8 +10,6 @@ export default function Casio() {
                            "6","7","8",
                            "9","=","C"]
 
-  //let [luminous,setLuminous] = useState(false)
-
   const  luminous  = useAppSelector(state=>state.moduleReducer.luminous)
 
   const dispatch = useAppDispatch()
