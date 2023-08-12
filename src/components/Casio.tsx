@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import DigitalScreen from './Digital'
-import { useAppSelector, useAppDispatch } from '../redux/hooks'
-import { switchLight } from 'redux/module'
+import { useAppSelector, useAppDispatch } from '../redux/config/hooks'
+import { switchLight, switchMode } from 'redux/module'
 
 export default function Casio() {
 
@@ -13,6 +13,7 @@ export default function Casio() {
   //let [luminous,setLuminous] = useState(false)
 
   const  luminous  = useAppSelector(state=>state.moduleReducer.luminous)
+
   const dispatch = useAppDispatch()
 
   let calculator = buttons.map((element)=>{
@@ -23,10 +24,6 @@ export default function Casio() {
     </button>
   })
 
-  // let light = ()=>{
-  //   setLuminous(prev => !prev)
-  // }
-
   return (
       <div className='bg-white w-2/4 h-3/4 rounded'>
         <div className='flex flex-col divide-y-8 divide-yellow-600 w-full h-full'>
@@ -34,7 +31,7 @@ export default function Casio() {
             <div className='bg-black flex flex-row h-full w-full p-4 space-x-4'>
               <div className='text-yellow-400 flex flex-col justify-evenly'> 
                 <button className='rotate-90'>{"►Adjust"}</button>
-                <button className='-rotate-90'>{"►Mode"}</button>
+                <button onClick={()=>dispatch(switchMode())} className='-rotate-90'>{"►Mode"}</button>
                </div>
               <div className='h-full w-full flex-col'>
                 <div className='flex flex-row justify-between'>

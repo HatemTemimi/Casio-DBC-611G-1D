@@ -1,26 +1,32 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
-import { RootState } from "./store"
+import { RootState } from "./config/store"
 
-// Define a type for the slice state
 interface ModuleState {
     luminous: boolean
+    mode: string
   }
-  // Define the initial state using that type
   const initialState: ModuleState = {
     luminous: false,
+    mode: 'watch',
   }
   
   export const moduleSlice = createSlice({
-    name: 'counter',
-    // `createSlice` will infer the state type from the `initialState` argument
+    name: 'module',
     initialState,
     reducers: {
       switchLight: (state) => {
         state.luminous = !state.luminous
       },
+      switchMode: (state) => {
+        if (state.mode == 'calculator'){
+          state.mode = 'watch'
+        } else {
+          state.mode = 'calculator'
+        }
+      },
     },
   })
   
-  export const { switchLight } = moduleSlice.actions
+  export const { switchLight, switchMode } = moduleSlice.actions
   
   export default moduleSlice.reducer
