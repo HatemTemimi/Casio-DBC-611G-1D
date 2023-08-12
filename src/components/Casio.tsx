@@ -16,6 +16,10 @@ export default function Casio() {
     </button>
   })
 
+  let light = ()=>{
+      console.log('the light is on!')
+  }
+
   return (
       <div className='bg-white w-2/4 h-3/4 rounded'>
         <div className='flex flex-col divide-y-8 divide-yellow-600 w-full h-full'>
@@ -23,7 +27,7 @@ export default function Casio() {
             <div className='bg-black flex flex-row h-full w-full p-4 space-x-4'>
               <div className='text-yellow-400 flex flex-col justify-evenly'> 
                 <button className='rotate-90'>{"►Adjust"}</button>
-                <button className='rotate-90'>{"►Mode"}</button>
+                <button className='-rotate-90'>{"►Mode"}</button>
                </div>
               <div className='h-full w-full flex-col'>
                 <div className='flex flex-row justify-between'>
@@ -40,7 +44,7 @@ export default function Casio() {
               </div>
               <div className='text-yellow-400 flex flex-col justify-evenly'> 
                 <button className='rotate-90'>{"►AC"}</button>
-                <button className='rotate-90'>{"►Light"}</button>
+                <button onClick={()=>light()} className='-rotate-90'>{"►Light"}</button>
                </div>
             </div>
           </div>
