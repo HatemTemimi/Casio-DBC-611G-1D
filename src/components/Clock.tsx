@@ -66,7 +66,7 @@ export default function Clock() {
 
 
   return (
-      <div className="flex flex-col justify-center items-center w-full min-h-screen h-full">
+      <div className="flex flex-col justify-center items-center w-full h-72">
         <div className='flex flex-row justify-between w-full px-4 -mt-6'>
             <h1 className='text-4xl font-bold '>{date.substring(0,4)}</h1>
             <div className='text-xs'>
@@ -75,8 +75,16 @@ export default function Clock() {
                     ? <p>&#9632;		Autolight</p>
                     : <p> &#9633;		Autolight</p>
                 } 
-                <p>&#9632; &#9633;		3 sec</p>
-                <p>&#9632; &#9633;		Mute</p>
+                {
+                    (1==1)
+                    ?  <p>&#9632; 		3 sec</p>
+                    : <p>&#9633;		3 sec</p>
+                }
+                {
+                    (1==1)
+                    ?  <p>&#9632; 		Mute</p>
+                    : <p>&#9633;		Mute</p>
+                }
             </div>
         </div>
         <div className='flex flex-row space-x-16'>
