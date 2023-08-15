@@ -34,7 +34,7 @@ export default function Calculator() {
                 }
             </div>
         </div>
-        <div className='flex flex-row space-x-16'>
+        <div className='flex flex-row space-x-16 h-24'>
             <h1 className="text-8xl font-bold tracking-tight text-black sm:text-8xl">
               {a}
             </h1>
