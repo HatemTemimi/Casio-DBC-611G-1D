@@ -23,10 +23,10 @@ export default function Casio() {
   const [play] = useSound(beep, {playbackRate: 0.9});
 
 
-  let buttons = buttons.map((element, key)=>{
+  let calcButtons = buttons.map((element, key)=>{
     return <button key={key} value={element}
-     className="bg-black hover:border-yellow-700 hover:bg-yellow-400 hover:text-black text-white
-     font-bold py-2 px-4 border-b-8 border-yellow-400 hover:yellow -blue-500" 
+     className="bg-black  hover:border-yellow-700 hover:bg-yellow-400 hover:text-black text-white
+     font-bold py-2 px-4 border-b-8 border-yellow-400 hover:yellow -blue-500"
      onClick={(e)=>{
         play()
         dispatch(setCalculatorParams(e.target.value))
@@ -67,7 +67,7 @@ export default function Casio() {
             <div className='bg-black w-auto h-full p-2 rounded-md'>
               <div className='bg-yellow-400 w-auto h-full p-2'>
                 <div className='bg-black w-auto h-full grid grid-cols-4 divide-x-2 divide-yellow-400'>
-                  {buttons}
+                  {calcButtons}
                 </div>
               </div>
             </div>
