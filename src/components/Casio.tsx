@@ -4,6 +4,7 @@ import { useAppSelector, useAppDispatch } from '../redux/config/hooks'
 import { setCalculatorParams, switchLight, switchMode } from 'redux/module'
 import useSound from 'use-sound';
 import beep from '../public/sounds/beep.mp3'
+import Button from './Button'
 
 export default function Casio() {
 
@@ -24,15 +25,11 @@ export default function Casio() {
 
 
   let calcButtons = buttons.map((element, key)=>{
-    return <button key={key} value={element}
-     className="bg-black  hover:border-yellow-700 hover:bg-yellow-400 hover:text-black text-white
-     font-bold py-2 px-4 border-b-8 border-yellow-400 hover:yellow -blue-500"
-     onClick={(e)=>{
-        play()
-        dispatch(setCalculatorParams(e.target.value))
-     }}>
-      {element}
-    </button>
+    return <Button value={element} isOps={typeof element == 'number' ? false : true} 
+              onClick={(e)=>{
+              play()
+              dispatch(setCalculatorParams(e.target.value))
+     }}></Button>
   })
 
   return (
