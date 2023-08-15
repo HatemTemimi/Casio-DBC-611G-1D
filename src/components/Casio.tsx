@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import DigitalScreen from './Digital'
 import { useAppSelector, useAppDispatch } from '../redux/config/hooks'
-import { switchLight, switchMode } from 'redux/module'
+import { setCalculatorParams, switchLight, switchMode } from 'redux/module'
+import useSound from 'use-sound';
+import beep from '../public/sounds/beep.mp3'
 
 export default function Casio() {
 
@@ -12,12 +14,23 @@ export default function Casio() {
 
   const  luminous  = useAppSelector(state=>state.moduleReducer.luminous)
 
+  const  a  = useAppSelector(state=>state.moduleReducer.a)
+
+  const  b  = useAppSelector(state=>state.moduleReducer.b)
+
   const dispatch = useAppDispatch()
 
+  const [play] = useSound(beep, {playbackRate: 0.9});
+
+
   let calculator = buttons.map((element)=>{
-    return <button key={element}
-     className="bg-black hover:border-yellow-700 hover:bg-yellow-400 hover:text-black text-white font-bold py-2 px-4
-     border-b-8 border-yellow-400 hover:yellow -blue-500">
+    return <button key={element} value={element}
+     className="bg-black hover:border-yellow-700 hover:bg-yellow-400 hover:text-black text-white
+     font-bold py-2 px-4 border-b-8 border-yellow-400 hover:yellow -blue-500" 
+     onClick={(e)=>{
+        play()
+        dispatch(setCalculatorParams(e.target.value))
+     }}>
       {element}
     </button>
   })

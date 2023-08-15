@@ -4,10 +4,17 @@ import { RootState } from "./config/store"
 interface ModuleState {
     luminous: boolean
     mode: string
+    a: number | null
+    b: number | null
+    lastSet: string
+
   }
   const initialState: ModuleState = {
     luminous: false,
     mode: 'watch',
+    a: null,
+    b: null,
+    lastSet: 'b'
   }
   
   export const moduleSlice = createSlice({
@@ -24,9 +31,22 @@ interface ModuleState {
           state.mode = 'calculator'
         }
       },
+      setCalculatorParams:(state, PayloadAction) => {
+        
+        if (state.lastSet==='b'){
+          console.log("setting a")
+          state.a = PayloadAction.payload
+          state.lastSet = 'a'
+        } else {
+          console.log("setting b")
+          state.b = PayloadAction.payload
+          state.lastSet = 'b'
+        }
+
+      }
     },
   })
   
-  export const { switchLight, switchMode } = moduleSlice.actions
+  export const { switchLight, switchMode, setCalculatorParams} = moduleSlice.actions
   
   export default moduleSlice.reducer
