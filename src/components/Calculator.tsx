@@ -8,14 +8,17 @@ export default function Calculator() {
 
   const  b  = useAppSelector(state=>state.moduleReducer.b)
 
+  const  operation  = useAppSelector(state=>state.moduleReducer.operation)
+
+  const  luminous  = useAppSelector(state=>state.moduleReducer.luminous)
+
   const dispatch = useDispatch()
 
- const  luminous  = useAppSelector(state=>state.moduleReducer.luminous)
 
   return (
       <div className="flex flex-col justify-center items-center w-full h-72">
         <div className='flex flex-row justify-between w-full px-4 -mt-6'>
-            <h1 className='text-4xl font-bold '>=</h1>
+            <h1 className='text-4xl font-bold '>{operation ? operation : "Operator not set"}</h1>
             <div className='text-xs'>
                 {
                     (luminous) 
@@ -43,7 +46,7 @@ export default function Calculator() {
             </h1>
         </div>
         <p className="mt-4 text-2xl font-bold text-black">
-          calculator
+          Calculator
         </p>
       </div>
   )

@@ -7,6 +7,7 @@ interface ModuleState {
     a: number | null
     b: number | null
     lastSet: string
+    operation: string | null
 
   }
   const initialState: ModuleState = {
@@ -14,7 +15,8 @@ interface ModuleState {
     mode: 'watch',
     a: null,
     b: null,
-    lastSet: 'b'
+    lastSet: 'b',
+    operation: null
   }
   
   export const moduleSlice = createSlice({
@@ -32,7 +34,6 @@ interface ModuleState {
         }
       },
       setCalculatorParams:(state, PayloadAction) => {
-        
         if (state.lastSet==='b'){
           console.log("setting a")
           state.a = PayloadAction.payload
@@ -43,10 +44,13 @@ interface ModuleState {
           state.lastSet = 'b'
         }
 
+      },
+      setCalculatorOperation:(state, PayloadAction) => {
+        state.operation = PayloadAction.payload
       }
     },
   })
   
-  export const { switchLight, switchMode, setCalculatorParams} = moduleSlice.actions
+  export const { switchLight, switchMode, setCalculatorParams, setCalculatorOperation} = moduleSlice.actions
   
   export default moduleSlice.reducer
