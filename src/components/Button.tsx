@@ -9,11 +9,11 @@ interface ButtonProps {
 }
 
 export default function Button(props: ButtonProps) {
-  const setParams = (e: any)=>{
+  const setParams = (e)=>{
     dispatch(setCalculatorParams(e.target.value))
   }
 
-  const setOps = (e: any)=>{
+  const setOps = (e)=>{
     dispatch(setCalculatorOperation(e.target.value))
   }
 
