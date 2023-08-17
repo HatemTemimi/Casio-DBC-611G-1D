@@ -25,12 +25,9 @@ export default function Casio() {
 
 
   let calcButtons = buttons.map((element, key)=>{
-    return <Button value={element} isOps={typeof element == 'number' ? false : true} 
-              onClick={(e)=>{
-              play()
-              dispatch(setCalculatorParams(e.target.value))
-     }}></Button>
+    return <Button key={key} value={element} isNumber={isNaN(parseInt(element)) ? false : true}></Button>
   })
+
 
   return (
       <div className='bg-white w-2/4 h-3/4 rounded'>
