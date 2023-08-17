@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { useAppSelector } from 'redux/config/hooks'
 
@@ -13,6 +13,10 @@ export default function Calculator() {
   const  luminous  = useAppSelector(state=>state.moduleReducer.luminous)
 
   const dispatch = useDispatch()
+
+  useEffect(()=>{
+    console.log("2 * 2")
+  })
 
 
   return (
