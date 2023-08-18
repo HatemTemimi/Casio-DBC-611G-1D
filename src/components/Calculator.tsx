@@ -1,4 +1,6 @@
-import React, { useEffect } from 'react'
+import { create, all } from 'mathjs'
+
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useAppSelector } from 'redux/config/hooks'
 
@@ -12,12 +14,20 @@ export default function Calculator() {
 
   const  luminous  = useAppSelector(state=>state.moduleReducer.luminous)
 
+
+  let [result, setResult] = useState("")
+
   const dispatch = useDispatch()
 
-  useEffect(()=>{
-    console.log("2 * 2")
-  })
+  const config = { }
+  const math = create(all, config)
 
+  useEffect(()=>{
+    if (a !== null && b !== null){
+        setResult(math.evaluate(`${a}${operation}${b}`))
+        console.log(result)
+    }
+  })
 
   return (
       <div className="flex flex-col justify-center items-center w-full h-72">
